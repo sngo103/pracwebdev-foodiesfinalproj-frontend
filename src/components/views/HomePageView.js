@@ -16,18 +16,23 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'Courier, sans-serif', 
     fontSize: '35px', 
-    color: '#CDDC39'
+    color: '#4CC9F0'
+  },
+  main:{
+    display: 'flex',
+    justifyContent: 'center',
   },
   appBar:{
-    backgroundColor: '#11153e',
+    backgroundColor: '#3A0CA3',
     shadows: ['none'],
   },
   greeting:{
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'white',
-    width: "50%",
     margin: "auto",
+    color: '#4CC9F0',
+    fontSize: '50px',
+    fontFamily: 'Georgia'
   },
   links:{
     textDecoration: 'none',
@@ -50,16 +55,27 @@ const HomePageView = () => {
               All Campuses
             </Button>
           </Link>
-
           <Link className={classes.links} to={'/students'} >
             <Button variant="contained" color="primary">
               All Students
             </Button>
           </Link>
         </Toolbar>
-      </AppBar>
-      
+      </AppBar>  
       <div className={classes.greeting}><h1>Home Page</h1></div>
+      <div className={classes.main}>
+        <Link className={classes.links} to={'/campuses'} >
+          <Button variant="contained" color="primary" style={{margin: '30px', fontSize: '60px'}}>
+            All Campuses
+          </Button>
+        </Link>
+        <Link className={classes.links} to={'/students'} >
+          <Button variant="contained" color="primary" style={{margin: '30px', fontSize: '60px'}}>
+            All Students
+          </Button>
+        </Link>
+      </div>
+      
     </div>
   );    
 }
