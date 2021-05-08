@@ -32,20 +32,22 @@ const AllStudentsView = (props) => {
 
   return (
     <div>
-      {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
+      {props.allStudents.map((student) => (
+        <div key={student.id}>
+          <Link to={`/student/${student.id}`}>
+            <h1>{student.firstname}</h1>
+            <h1>{student.lastname}</h1>
           </Link>
-          <p>{campus.description}</p>
+          <p>{student.email}</p>
+          <p>{student.gpa}</p>
         </div>
       ))}
     </div>
   );
 };
 
-AllCampusesView.propTypes = {
-  allCampuses: PropTypes.array.isRequired,
+AllStudentsView.propTypes = {
+  allStudents: PropTypes.array.isRequired,
 };
 
-export default AllCampusesView;
+export default AllStudentsView;

@@ -1,34 +1,43 @@
-import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import { makeStyles } from '@material-ui/core/styles';
+import { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchAllStudentsThunk } from "../../store/thunks";
+import { AllStudentsView } from "../views";
 
-//do we need a class component or a functional component here? 
+class AllStudentsContainer extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    this.props.fetchAllStudents();
+  }
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  appBar:{
-    backgroundColor: '#3A0CA3',
-    height: '64px',
-    shadows: ['none'],
-  },
-}));
+  render() {
+    return (
+      <AllStudentsView
+        allStudents={this.props.allStudents}
+      />
+    );
+  }
+}
 
-const AllStudentsContainer = () => {
-  const classes = useStyles();
-  return (
-    <div>
-      <AppBar position="static" elevation={0} className={classes.appBar}>
-        <Link  to={'/'} >
-            <Button variant="contained" color="primary" style={{marginLeft: '10px', marginTop: '10px'}}>Home</Button>
-        </Link>
-        </AppBar>
-      <h1 style={{textAlign: 'center', fontSize: '60px', fontFamily: 'Georgia', color: '#4CC9F0'}}>All Students View</h1>
-    </div>
-    
-  );
+// Map state to props;
+const mapState = (state) => {
+  return {
+    allStudents: state.allStudents,
+  };
 };
 
-export default AllStudentsContainer;
+// Map dispatch to props;
+const mapDispatch = (dispatch) => {
+  return {
+    fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+  };
+};
+
+// Type check props;
+AllStudentsContainer.propTypes = {
+  allStudents: PropTypes.array.isRequired,
+  fetchAllStudents: PropTypes.func.isRequired,
+};
+
+// Export our store-connected container by default;
+export default connect(mapState, mapDispatch)(AllStudentsContainer);
