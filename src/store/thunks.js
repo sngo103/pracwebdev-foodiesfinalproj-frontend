@@ -30,7 +30,7 @@ export const fetchCampusThunk = (id) => async (dispatch) => {
   }
 };
 
-//All students
+//All students //NEEEEEEDD FOR DISPLAYING IN ALLSTUDENTSCONTAINER
 export const fetchAllStudentsThunk = () => async (dispatch) => {
   try {
     let res = await axios.get(`/api/students`);

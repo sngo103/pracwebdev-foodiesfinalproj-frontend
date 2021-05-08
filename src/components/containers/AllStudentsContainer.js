@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 
+//do we need a class component or a functional component here? 
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
