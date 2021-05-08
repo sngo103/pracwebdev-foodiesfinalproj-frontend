@@ -15,9 +15,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const AllCampusesView = (props) => {
+const AllStudentsView = (props) => {
   const classes = useStyles();
-  if (!props.allCampuses.length) {
+  if (!props.allStudents.length) {
     return (
       <div>
         <AppBar position="static" elevation={0} className={classes.appBar}>
@@ -25,27 +25,29 @@ const AllCampusesView = (props) => {
           <Button variant="contained" color="primary" style={{marginLeft: '10px', marginTop: '10px'}}>Home</Button>
         </Link>
         </AppBar>
-        <h1 style={{textAlign: 'center', fontSize: '60px', fontFamily: 'Georgia', color: '#4CC9F0'}}>There are no campuses.</h1> 
+        <h1 style={{textAlign: 'center', fontSize: '60px', fontFamily: 'Georgia', color: '#4CC9F0'}}>There are no students.</h1> 
       </div>
     );
   };
 
   return (
     <div>
-      {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
+      {props.allStudents.map((student) => (
+        <div key={student.id}>
+          <Link to={`/student/${student.id}`}>
+            <h1>{student.firstname}</h1>
+            <h1>{student.lastname}</h1>
           </Link>
-          <p>{campus.description}</p>
+          <p>{student.email}</p>
+          <p>{student.gpa}</p>
         </div>
       ))}
     </div>
   );
 };
 
-AllCampusesView.propTypes = {
-  allCampuses: PropTypes.array.isRequired,
+AllStudentsView.propTypes = {
+  allStudents: PropTypes.array.isRequired,
 };
 
-export default AllCampusesView;
+export default AllStudentsView;
