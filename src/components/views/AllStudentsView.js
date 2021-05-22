@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
   },
   appBar:{
-    backgroundColor: '#3A0CA3',
+    backgroundColor: '#8e72b5',
     height: '64px',
     shadows: ['none'],
   },
@@ -25,7 +25,7 @@ const AllStudentsView = (props) => {
           <Button variant="contained" color="primary" style={{marginLeft: '10px', marginTop: '10px'}}>Home</Button>
         </Link>
         </AppBar>
-        <h1 style={{textAlign: 'center', fontSize: '60px', fontFamily: 'Georgia', color: '#4CC9F0'}}>There are no students.</h1> 
+        <h1 style={{textAlign: 'center', fontSize: '60px', fontFamily: 'Georgia', color: 'black'}}>There are no students.</h1> 
       </div>
     );
   };

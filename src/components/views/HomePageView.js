@@ -16,21 +16,21 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'Courier, sans-serif', 
     fontSize: '35px', 
-    color: '#4CC9F0'
+    color: '#e1d8ed'
   },
   main:{
     display: 'flex',
     justifyContent: 'center',
   },
   appBar:{
-    backgroundColor: '#3A0CA3',
+    backgroundColor: '#8e72b5',
     shadows: ['none'],
   },
   greeting:{
     display: 'flex',
     justifyContent: 'center',
     margin: "auto",
-    color: '#4CC9F0',
+    color: 'black',
     fontSize: '50px',
     fontFamily: 'Georgia'
   },
