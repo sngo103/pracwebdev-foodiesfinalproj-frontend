@@ -105,7 +105,7 @@ const AllStudentsView = (props) => {
                 <TextField required name="student_lastname" label="Last Name" />
                 <TextField required type="email" name="student_email" label="Email" />
                 <TextField name="student_image" label="Image Url" />
-                <TextField type="number" name="student_gpa" label="GPA" InputProps={{ inputProps: { min: 1.00, max: 4.99, step: 0.01 } }} />                
+                <TextField type="number" name="student_gpa" label="GPA" InputProps={{ inputProps: { min: 0.00, max: 4.00, step: 0.01 } }} />                
                 <Button
                  type="submit"
                  form="add_student_form"
@@ -136,7 +136,7 @@ const AllStudentsView = (props) => {
       >
         All Students
       </h1>
-      {props.allStudents.length === 0 ? (
+      {props.allStudents.length == 0 ? (
         <h3
           style={{
             textAlign: "center",

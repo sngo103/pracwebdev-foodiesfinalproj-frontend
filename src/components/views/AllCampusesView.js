@@ -141,7 +141,7 @@ const AllCampusesView = (props) => {
       >
         All Campuses
       </h1>
-      {props.allCampuses.length === 0 ? (
+      {props.allCampuses.length == 0 ? (
         <h3
           style={{
             textAlign: "center",
