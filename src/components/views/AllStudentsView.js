@@ -1,17 +1,17 @@
 import { Button } from "@material-ui/core";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import AppBar from '@material-ui/core/AppBar';
-import { makeStyles } from '@material-ui/core/styles';
+import AppBar from "@material-ui/core/AppBar";
+import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  appBar:{
-    backgroundColor: '#8e72b5',
-    height: '64px',
-    shadows: ['none'],
+  appBar: {
+    backgroundColor: "#8e72b5",
+    height: "64px",
+    shadows: ["none"],
   },
 }));
 
@@ -21,17 +21,43 @@ const AllStudentsView = (props) => {
     return (
       <div>
         <AppBar position="static" elevation={0} className={classes.appBar}>
-        <Link  to={'/'}>
-          <Button variant="contained" color="primary" style={{marginLeft: '10px', marginTop: '10px'}}>Home</Button>
-        </Link>
+          <Link to={"/"}>
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+            >
+              Home
+            </Button>
+          </Link>
         </AppBar>
-        <h1 style={{textAlign: 'center', fontSize: '60px', fontFamily: 'Georgia', color: 'black'}}>There are no students.</h1> 
+        <h1
+          style={{
+            textAlign: "center",
+            fontSize: "60px",
+            fontFamily: "Georgia",
+            color: "black",
+          }}
+        >
+          There are no students.
+        </h1>
       </div>
     );
-  };
+  }
 
   return (
     <div>
+      <AppBar position="static" elevation={0} className={classes.appBar}>
+        <Link to={"/"}>
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ marginLeft: "10px", marginTop: "10px" }}
+          >
+            Home
+          </Button>
+        </Link>
+      </AppBar>
       {props.allStudents.map((student) => (
         <div key={student.id}>
           <Link to={`/student/${student.id}`}>
