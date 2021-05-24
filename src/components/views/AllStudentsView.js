@@ -52,7 +52,7 @@ async function addStudent(event){
       lastname: event.target.student_lastname.value,
       email: event.target.student_email.value,
       imageUrl: event.target.student_image.value,
-      gpa: event.target.student_gpa.value,
+      gpa: event.target.student_gpa.value || 0.00,
     });
     console.log(response);
   } catch (error) {
