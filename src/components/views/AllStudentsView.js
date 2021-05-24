@@ -60,6 +60,15 @@ async function addStudent(event){
   }
 }
 
+async function deleteStudent(id) {
+  try {
+    const response = await axios.delete(`/api/students/${id}`);
+    console.log('deleteStudent response: ', response);
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 const AllStudentsView = (props) => {
   const classes = useStyles();
   return (
@@ -136,6 +145,16 @@ const AllStudentsView = (props) => {
       >
         All Students
       </h1>
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "15px",
+          fontFamily: "Georgia",
+          color: "black",
+        }}
+      >
+      *Note: Please refresh after deleting to view updated page.*
+      </h1>
       {props.allStudents.length == 0 ? (
         <h3
           style={{
@@ -193,6 +212,14 @@ const AllStudentsView = (props) => {
                   color="primary"
                 >
                   To Student Profile
+                </Button>
+                <Button
+                  onClick= {() => {deleteStudent(student.id)}}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  Delete Student
                 </Button>
               </CardActions>
             </Card>

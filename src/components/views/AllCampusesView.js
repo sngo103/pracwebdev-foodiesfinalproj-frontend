@@ -58,6 +58,15 @@ async function addCampus(event){
   }
 }
 
+async function deleteCampus(id) {
+  try {
+    const response = await axios.post(`api/campuses/${id}`);
+    console.log('deleteCampus response: ', response);
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 const AllCampusesView = (props) => {
   const classes = useStyles();
   return (
@@ -141,6 +150,16 @@ const AllCampusesView = (props) => {
       >
         All Campuses
       </h1>
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "15px",
+          fontFamily: "Georgia",
+          color: "black",
+        }}
+      >
+      *Note: Please refresh after deleting to view updated page.*
+      </h1>
       {props.allCampuses.length == 0 ? (
         <h3
           style={{
@@ -153,7 +172,6 @@ const AllCampusesView = (props) => {
             margin: "auto",
             width: "50%",
             padding: "10px",
-            display: "inline-block"
           }}
         >
           There are no campuses.
@@ -192,6 +210,14 @@ const AllCampusesView = (props) => {
                   color="primary"
                 >
                   To Campus
+                </Button>
+                <Button
+                  onClick= {() => {deleteCampus(campus.id)}}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  Delete Campus
                 </Button>
               </CardActions>
             </Card>
