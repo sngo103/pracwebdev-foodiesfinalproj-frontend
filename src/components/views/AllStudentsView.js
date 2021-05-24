@@ -60,6 +60,15 @@ async function addStudent(event){
   }
 }
 
+async function deleteStudent(id) {
+  try {
+    const response = await axios.delete(`/api/students/${id}`);
+    console.log('deleteStudent response: ', response);
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 const AllStudentsView = (props) => {
   const classes = useStyles();
   return (
@@ -193,6 +202,14 @@ const AllStudentsView = (props) => {
                   color="primary"
                 >
                   To Student Profile
+                </Button>
+                <Button
+                  onClick= {() => {deleteStudent(student.id)}}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  Delete Student
                 </Button>
               </CardActions>
             </Card>

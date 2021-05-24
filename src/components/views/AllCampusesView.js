@@ -58,6 +58,15 @@ async function addCampus(event){
   }
 }
 
+async function deleteCampus(id) {
+  try {
+    const response = await axios.post(`api/campuses/${id}`);
+    console.log('deleteCampus response: ', response);
+  } catch(error) {
+    console.log(error);
+  }
+}
+
 const AllCampusesView = (props) => {
   const classes = useStyles();
   return (
@@ -192,6 +201,14 @@ const AllCampusesView = (props) => {
                   color="primary"
                 >
                   To Campus
+                </Button>
+                <Button
+                  onClick= {() => {deleteCampus(campus.id)}}
+                  variant="contained"
+                  size="small"
+                  color="primary"
+                >
+                  Delete Campus
                 </Button>
               </CardActions>
             </Card>
