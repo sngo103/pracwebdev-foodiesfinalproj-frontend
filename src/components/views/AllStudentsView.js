@@ -145,6 +145,16 @@ const AllStudentsView = (props) => {
       >
         All Students
       </h1>
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "15px",
+          fontFamily: "Georgia",
+          color: "black",
+        }}
+      >
+      *Note: Please refresh after deleting to view updated page.*
+      </h1>
       {props.allStudents.length == 0 ? (
         <h3
           style={{

@@ -150,6 +150,16 @@ const AllCampusesView = (props) => {
       >
         All Campuses
       </h1>
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "15px",
+          fontFamily: "Georgia",
+          color: "black",
+        }}
+      >
+      *Note: Please refresh after deleting to view updated page.*
+      </h1>
       {props.allCampuses.length == 0 ? (
         <h3
           style={{
@@ -162,7 +172,6 @@ const AllCampusesView = (props) => {
             margin: "auto",
             width: "50%",
             padding: "10px",
-            display: "inline-block"
           }}
         >
           There are no campuses.
